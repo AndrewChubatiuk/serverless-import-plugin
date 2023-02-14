@@ -2,7 +2,7 @@ declare class ServerlessError {
   constructor(message: string)
 }
 
-interface ServerlessPlugin {}
+interface ServerlessPlugin { }
 
 interface VariableProperty {
   path: string[]
@@ -17,11 +17,16 @@ interface VariableMatch {
 declare namespace Serverless {
   interface Instance {
     service: {
+      reloadServiceFileParam: () => void
       plugins?: string[]
       custom?: {
         [key: string]: object
       }
     }
+
+    configurationInput: any
+
+    extendConfiguration: (keys: string[], input: any) => void
 
     utils: {
       readFileSync: (path: string) => object
@@ -33,13 +38,6 @@ declare namespace Serverless {
 
     classes: {
       Error: { new(message: string): ServerlessError }
-    }
-
-    variables: {
-      variableSyntax: RegExp
-      loadVariableSyntax: () => void
-      getProperties: (root: object, onRoot: boolean, current: object) => VariableProperty[]
-      getMatches: (value: string) => VariableMatch[] | undefined
     }
 
     pluginManager: {

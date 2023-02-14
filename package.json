@@ -1,13 +1,13 @@
 {
-  "name": "serverless-import-config-plugin",
-  "version": "0.1.3",
+  "name": "serverless-import-plugin",
+  "version": "0.0.1",
   "description": "Adds possibility to import YAML files in serverless.yaml config file",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
-    "build": "echo 'Build' && tsc",
+    "build": "tsc --project .",
     "watch": "npm-watch",
-    "prepublishOnly": "npm run build"
+    "fmt": "tsfmt"
   },
   "watch": {
     "build": {
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KrysKruk/serverless-import-config-plugin.git"
+    "url": "git+https://github.com/AndrewChubatiuk/serverless-import-plugin.git"
   },
   "keywords": [
     "serverless",
@@ -32,29 +32,25 @@
     "serverless.yaml"
   ],
   "author": {
-    "name": "Krystian Kruk",
-    "email": "kildyt@gmail.com"
+    "name": "Andrew Chubatiuk",
+    "email": "andrew.chubatiuk@gmail.com"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/KrysKruk/serverless-import-config-plugin/issues"
+    "url": "https://github.com/AndrewChubatiuk/serverless-import-plugin/issues"
   },
-  "homepage": "https://github.com/KrysKruk/serverless-import-config-plugin#readme",
+  "homepage": "https://github.com/AndrewChubatiuk/serverless-import-plugin#readme",
   "devDependencies": {
     "npm-watch": "^0.6.0",
-    "typescript": "^3.7.4"
-  },
-  "dependencies": {
-    "@types/lodash.difference": "^4.5.6",
-    "@types/lodash.differencewith": "^4.5.6",
-    "@types/lodash.isequal": "^4.5.5",
-    "@types/lodash.set": "^4.3.6",
     "@types/node": "^13.1.2",
     "@types/resolve": "^1.14.0",
-    "lodash.difference": "^4.5.0",
-    "lodash.differencewith": "^4.5.0",
-    "lodash.isequal": "^4.5.0",
-    "lodash.set": "^4.3.2",
+    "typescript": "4.9.5",
+    "typescript-formatter": "^7.2.2"
+  },
+  "peerDependencies": {
+    "serverless": "^2.60 || 3"
+  },
+  "dependencies": {
     "resolve": "^1.14.2"
   }
 }

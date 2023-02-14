@@ -1,4 +1,4 @@
-# Serverless Import Config Plugin
+# Serverless Import Plugin
 
 Split your `serverless.yaml` config file into smaller modules and import them.
 
@@ -11,13 +11,13 @@ Works on importing yaml files by path or node module, especially useful in multi
 
 Install with **npm**:
 ```sh
-npm install --save-dev serverless-import-config-plugin
+npm install --save-dev serverless-import-plugin
 ```
 
 And then add the plugin to your `serverless.yml` file:
 ```yaml
 plugins:
-  - serverless-import-config-plugin
+  - serverless-import-plugin
 ```
 
 ## Usage

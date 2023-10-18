@@ -140,7 +140,7 @@ class ImportPlugin {
 
     this.log.info(`Importing ${pathToImport}`)
     const importPath = this.resolvePathToImport(pathToImport, { basedir })
-    let config: object
+    let config: any
     try {
       if (path.extname(importPath) === JS_EXTNAME) {
         const importExports = require(importPath)
@@ -159,7 +159,17 @@ class ImportPlugin {
         Error: Cannot import ${pathToImport}\nCause: ${errMsg}
       `)
     }
-    merge(this.configurationInput, config)
+    var general = {}
+    if (config?.global?.functions) {
+      const functions = this.configurationInput?.functions;
+      const generalFn = config?.global?.functions || {};
+      general['functions'] = {}
+      for (const fn of Object.keys(functions)) {
+        general['functions'][fn] = generalFn;
+      }
+    }
+    delete config['global'];
+    merge(this.configurationInput, general, config)
   }
 
   private async loadImportedPlugins() {

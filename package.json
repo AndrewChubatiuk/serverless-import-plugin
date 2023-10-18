@@ -1,6 +1,6 @@
 {
   "name": "serverless-import-plugin",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Adds possibility to import YAML files in serverless.yaml config file",
   "main": "dist/src/index.js",
   "files": [
